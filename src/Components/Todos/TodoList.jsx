@@ -1,32 +1,29 @@
-import React, { useContext } from "react"
-import TodoItem from "./TodoItem"
-import { TodosContext, UpdateTodosContext } from "../../contexts/todosContext"
+import React, { useContext } from "react";
+import TodoItem from "./TodoItem";
+import { TodosContext, UpdateTodosContext } from "../../contexts/todosContext";
 
 export default function TodoList({ filter }) {
-  console.log("THIS IS FILTER FINCTOIN", typeof filter)
-  const todos = useContext(TodosContext)
-  const updateTodos = useContext(UpdateTodosContext)
-  let i = 0
-  function toggleTodo(todo) {
-    todo.isDone = !todo.isDone
-    updateTodos([...todos])
+  const todos = useContext(TodosContext);
+  const { update_deleteTodo, update_toggleTodo } =
+    useContext(UpdateTodosContext);
+  function toggleTodo(id) {
+    update_toggleTodo(id);
   }
-  function deleteTodo(todo) {
-    const newTodos = todos.filter((item) => item !== todo)
-    updateTodos(newTodos)
+  function deleteTodo(id) {
+    update_deleteTodo(id);
   }
   return (
     <>
       {filter(todos).map((todo) => (
-        <div key={i++}>
+        <div key={todo._id}>
           <TodoItem
-            isDone={todo?.isDone}
-            text={todo?.text}
-            toggleTodo={(_) => toggleTodo(todo)}
-            deleteTodo={(_) => deleteTodo(todo)}
+            isDone={todo.done}
+            text={todo.text}
+            toggleTodo={(_) => toggleTodo(todo._id)}
+            deleteTodo={(_) => deleteTodo(todo._id)}
           />
         </div>
       ))}
     </>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-import React, { useContext } from "react"
-import { TodosContext, UpdateTodosContext } from "../../contexts/todosContext"
+import React, { useContext } from "react";
+import { TodosContext, UpdateTodosContext } from "../../contexts/todosContext";
 export default function TodosFooter({ setFilter }) {
-  const todos = useContext(TodosContext)
-  const updateTodos = useContext(UpdateTodosContext)
+  const todos = useContext(TodosContext);
+  const { update_removeDoneTodos } = useContext(UpdateTodosContext);
   return (
     <div className="todo-item todos-footer">
       <div className="count">
@@ -33,10 +33,11 @@ export default function TodosFooter({ setFilter }) {
       </div>
       <div
         className="clear"
-        onClick={(_) => updateTodos([...todos.filter((item) => !item.isDone)])}
+        onClick={(_) => update_removeDoneTodos()}
+        style={{ cursor: "pointer" }}
       >
         Clear Completed
       </div>
     </div>
-  )
+  );
 }

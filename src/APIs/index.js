@@ -12,6 +12,10 @@ export const login = (data) => axios.post("/auth/login", data);
 export const updateUser = (data) => axios.put("/user/update", data);
 export const deleteUser = () => axios.delete("/user/delete");
 
-export const addTodo = (body) => axios.post("/todos", { body });
-export const toggleTodo = (todo_id) => axios.put(`/todos/toggle/${todo_id}`);
-export const deleteTodo = (todo_id) => axios.delete(`/todos/delete/${todo_id}`);
+export const getTodos = () => axios.get("/user/todos/");
+export const addTodo = (text) => axios.post("/user/todos/new", { text });
+export const toggleTodo = (todo_id) =>
+  axios.put(`/user/todos/toggle/${todo_id}`);
+export const deleteTodo = (todo_id) =>
+  axios.delete(`/user/todos/delete/${todo_id}`);
+export const deleteTodoDone = () => axios.delete(`/user/todos/delete-done`);
