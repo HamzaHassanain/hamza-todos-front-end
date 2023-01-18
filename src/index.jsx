@@ -25,12 +25,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/user",
-        // loader: () => redirect("/"),
+        loader: () => redirect("/"),
         element: <User />,
       },
       {
         path: "/auth/:state",
-        // loader: () => redirect("/"),
+        loader: () => redirect("/"),
         element: <Auth />,
       },
     ],
