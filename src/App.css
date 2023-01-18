@@ -9,6 +9,23 @@
   margin: auto;
   width: 50%;
 }
+.button {
+  font-size: 1.2rem;
+  padding: 1rem 1.4rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.button.submit {
+  background: rgb(53, 148, 53);
+}
+.button.signout {
+  font-size: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: rgb(212, 48, 48);
+}
 .App {
   width: 100vw;
   min-height: 100vh;
@@ -54,7 +71,7 @@ nav {
 .todo-header-container {
   width: 100%;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1rem;
   justify-content: space-between;
 }
 
@@ -66,7 +83,7 @@ nav {
 }
 
 .Todos {
-  transform: translateY(-8rem);
+  transform: translateY(-6rem);
 }
 .Todos .todos-list {
   /* padding: 2rem 0rem; */
@@ -190,16 +207,67 @@ input.todo-item {
 .filters-container .clear {
   cursor: pointer;
 }
-
+.App.light .button {
+  color: white;
+}
+.App.light .change {
+  color: white;
+}
+.Auth .todo-item {
+  margin-bottom: 1rem !important;
+}
+.Auth .change {
+  width: 100%;
+  /* text-align: center; */
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.App.dark .Auth .change a {
+  color: white;
+}
+.App.light .Auth .change a {
+  color: black;
+}
+#error-page .errors-body {
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 2;
+}
+#error-page .errors-body h1 {
+  font-size: 3rem;
+}
 @media (max-width: 1024px) {
   .container {
     width: 80%;
   }
 }
-@media (max-width: 480px) {
+@media (max-height: 600px) {
+  .Todos {
+    transform: translateY(-4rem);
+  }
+}
+@media (min-height: 800px) {
+  .Todos {
+    transform: translateY(-12rem);
+  }
+}
+@media (max-width: 580px) {
+  .todo-item .delete-todo {
+    opacity: 1;
+  }
+  .container {
+    width: 90%;
+  }
+
   .Todos .todo-item {
     padding: 1rem 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.4;
   }
   .todos-footer > div {
     width: 100%;
