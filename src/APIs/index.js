@@ -9,7 +9,7 @@ axios.interceptors.request.use(function (config) {
 console.log(process.env.REACT_APP_BASE_URL);
 export const signup = (data) => axios.post("/auth/signup", data);
 export const login = (data) => axios.post("/auth/login", data);
-export const updateUser = (data) => axios.put("/user/update", data);
+export const updateUser = (name) => axios.put("/user/update", { name });
 export const deleteUser = () => axios.delete("/user/delete");
 
 export const getTodos = () => axios.get("/user/todos/");

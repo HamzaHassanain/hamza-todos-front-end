@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggler from "./ThemeToggler";
+import user from "../images/icons8-user-64.png";
 export default function Header() {
   const navigate = useNavigate();
   function handleSignout() {
@@ -15,13 +16,13 @@ export default function Header() {
         <nav>
           <div></div>
           {logedIn ? (
-            <div>
+            <div className="sub-nav">
               <button className="button signout" onClick={handleSignout}>
                 Sign Out
               </button>
-              {/* <Link to={"/user"} className="user-link">
-              User
-            </Link> */}
+              <Link to={"/user"} className="user-link">
+                <img src={user} width={48} height={48} />
+              </Link>
             </div>
           ) : (
             <div>
@@ -35,7 +36,9 @@ export default function Header() {
           )}
         </nav>
         <div className="todo-header-container">
-          <h1>Todo</h1>
+          <h1>
+            <Link to="/"> Todo </Link>
+          </h1>
           <ThemeToggler />
         </div>
       </div>

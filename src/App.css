@@ -81,7 +81,7 @@ nav {
 }
 
 .Todos {
-  transform: translateY(-6rem);
+  transform: translateY(-4rem);
 }
 .Todos .todos-list {
   /* padding: 2rem 0rem; */
@@ -247,6 +247,35 @@ input.todo-item {
   flex-direction: column;
   line-height: 2;
 }
+.todo-header-container a {
+  text-decoration: none;
+  color: white;
+}
+.sub-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* display: inline; */
+}
+.sub-nav .button {
+  margin-right: 3rem;
+}
+.error {
+  color: rgb(172, 0, 0);
+  padding-bottom: 1rem;
+}
+.App.dark .error {
+  color: rgb(255, 58, 58);
+  padding-bottom: 1rem;
+}
+.success {
+  color: rgb(0, 172, 0);
+  padding-bottom: 1rem;
+}
+.App.dark .success {
+  color: rgb(58, 255, 58);
+  padding-bottom: 1rem;
+}
 #error-page .errors-body h1 {
   font-size: 3rem;
 }
@@ -257,12 +286,12 @@ input.todo-item {
 }
 @media (max-height: 600px) {
   .Todos {
-    transform: translateY(-4rem);
+    transform: translateY(-2rem);
   }
 }
 @media (min-height: 800px) {
   .Todos {
-    transform: translateY(-12rem);
+    transform: translateY(-10rem);
   }
 }
 @media (max-width: 580px) {
