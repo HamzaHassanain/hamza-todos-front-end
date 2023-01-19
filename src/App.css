@@ -9,23 +9,21 @@
   margin: auto;
   width: 50%;
 }
+header nav {
+  margin-bottom: 2rem;
+}
 .button {
   font-size: 1.2rem;
-  padding: 1rem 1.4rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 6px;
   border: none;
   outline: none;
   background: none;
   cursor: pointer;
+  text-decoration: none;
+  margin-right: 0.5rem;
 }
-.button.submit {
-  background: rgb(53, 148, 53);
-}
-.button.signout {
-  font-size: 1rem;
-  padding: 0.8rem 1.2rem;
-  background: rgb(212, 48, 48);
-}
+
 .App {
   width: 100vw;
   min-height: 100vh;
@@ -207,14 +205,25 @@ input.todo-item {
 .filters-container .clear {
   cursor: pointer;
 }
-.App.light .button {
+.App.dark .button {
+  background-color: hsl(235, 24%, 19%);
   color: white;
 }
-.App.light .change {
-  color: white;
+.App.light .button {
+  background-color: white;
+  color: hsl(235, 24%, 19%);
 }
 .Auth .todo-item {
   margin-bottom: 1rem !important;
+}
+
+.button.submit {
+  background: rgb(53, 148, 53) !important;
+}
+.button.signout {
+  font-size: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: rgb(212, 48, 48) !important;
 }
 .Auth .change {
   width: 100%;
