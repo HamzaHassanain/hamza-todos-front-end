@@ -192,7 +192,10 @@ input.todo-item {
 .todos-footer {
   border: none !important;
 }
-
+.delete-button {
+  width: 100%;
+  margin-top: 6rem;
+}
 .filters-container {
   display: flex;
   justify-content: center;

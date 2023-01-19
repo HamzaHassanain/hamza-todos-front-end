@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import Input from "../Input";
 // import { Link, json, useParams, redirect, useNavigate } from "react-router-dom";
-import { updateUser } from "../../APIs";
+import { deleteUser, updateUser } from "../../APIs";
+import { useNavigate } from "react-router-dom";
 export default function Index() {
+  const navigate = useNavigate();
   const [errors, setErrors] = React.useState({});
   const [success, setSuccess] = React.useState("");
   const [name, setName] = React.useState(
@@ -26,6 +28,21 @@ export default function Index() {
         else console.error(err);
       });
   };
+  function handleDeleteAccount(e) {
+    e.preventDefault();
+    if (window.confirm("Sure?"))
+      deleteUser()
+        .then((res) => {
+          localStorage.removeItem("user");
+          navigate("/auth/login");
+        })
+        .catch((err) => {
+          setSuccess("");
+          const data = err.response?.data;
+          if (data) setErrors({ name: data.error });
+          else console.error(err);
+        });
+  }
   return (
     <form className="Todos container Auth" onSubmit={handleFromSubmit}>
       <>
@@ -39,6 +56,16 @@ export default function Index() {
       </>
       <button type="submit" className="button submit">
         Save
+      </button>
+
+      <br />
+      <br />
+      <br />
+      <button
+        className="button delete-button signout"
+        onClick={handleDeleteAccount}
+      >
+        Delete Account
       </button>
     </form>
   );
