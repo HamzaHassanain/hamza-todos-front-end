@@ -8,19 +8,31 @@ export default function Header() {
     localStorage.removeItem("todos");
     navigate("/auth/login");
   }
+  const logedIn = localStorage.getItem("user");
   return (
     <header>
       <div className="container">
         <nav>
           <div></div>
-          <div>
-            <button className="button signout" onClick={handleSignout}>
-              Sign Out
-            </button>
-            {/* <Link to={"/user"} className="user-link">
+          {logedIn ? (
+            <div>
+              <button className="button signout" onClick={handleSignout}>
+                Sign Out
+              </button>
+              {/* <Link to={"/user"} className="user-link">
               User
             </Link> */}
-          </div>
+            </div>
+          ) : (
+            <div>
+              <Link to="/auth/login" className="button ">
+                Log In
+              </Link>
+              <Link to="/auth/signup" className="button ">
+                Sign Up
+              </Link>
+            </div>
+          )}
         </nav>
         <div className="todo-header-container">
           <h1>Todo</h1>
