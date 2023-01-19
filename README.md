@@ -1,5 +1,7 @@
 # A simple Todo Application
 
+## [Live website link](https://hamza-todos-app-frontend.netlify.app/)
+
 [Backend Repo Link](https://github.com/hamzahasa067/hamza-todos-app-server)
 ![](./README/1.png)
 ![](./README/2.png)
