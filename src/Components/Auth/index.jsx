@@ -75,7 +75,7 @@ export default function Index() {
       </button>
       <div className="change">
         <Link to={`/auth/${state === "signup" ? "login" : "signup"}`}>
-          {state === "signup"
+          {state === "login"
             ? "Do not have an accout? Sign Up"
             : "Have an accout? Login"}
         </Link>
